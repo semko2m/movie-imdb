@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="card-columns animated fadeIn col-md-8">
+    <div *ngFor="let item of items" class="card ">
+      <div (click)="watchMovie(item)" class="pointer">
+        <img class="card-img-top" [src]="item | MovieImage" alt="Card image cap"/>
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">
+          <span *ngFor="let movie of item.movies" class="badge badge-pill badge-primary">
+            {{ movie.name }}
+          </span>
+          </p>
+        </div>
+      </div>
+      <i class="fa fa-star favorite-icon pointer" [ngClass]="{'red':item.favorite}" (click)="saveFavorite(item)" title="Add/remove from favorites"></i>
+      <i class="fa fa-clock-o watch-later-icon pointer"  (click)="saveWatchLater(item)" title="Add/remove from favorites"></i>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <app-watch-later [items]="itemsAdded"></app-watch-later>
+  </div>
+</div>
+

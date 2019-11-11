@@ -1,0 +1,15 @@
+<div class="row" style="margin-bottom: 30px">
+  <div class="col-md-12">
+    <input
+      #term
+      type="text"
+      (keyup)="search(term.value)"
+      class="form-control"
+      placeholder="Search Movie"
+    />
+  </div>
+</div>
+
+<app-loading class="m-5" *ngIf="loading"></app-loading>
+
+<app-cards *ngIf="!loading" [items]="movie"></app-cards>

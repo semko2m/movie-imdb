@@ -1,0 +1,30 @@
+<app-loading *ngIf="loadingMovie"></app-loading>
+<div class="container main-container animated fadeIn fast">
+
+    <div class="row">
+
+        <div class="col-md-5">
+            <img [src]="movie | MovieImage" [alt]="movie.original_title" class="img-thumbnail img-fluid">
+        </div>
+
+
+        <div class="col-md-7">
+            <h3>Synopsis</h3>
+            <hr>
+            <p class="text-justify">
+                {{ movie.overview }}
+            </p>
+
+            <p>
+                Popularity <span class="badge badge-primary">{{ movie.popularity | number:".0-0" }}/10</span>
+                <br>
+                Average Vote: <span class="badge badge-primary">{{ movie.vote_average }}</span>
+            </p>
+
+            <button [routerLink]="['/']" type="button" class="btn btn-outline-danger">
+                Return
+            </button>
+
+        </div>
+    </div>
+</div>

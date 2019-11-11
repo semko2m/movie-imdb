@@ -1,0 +1,10 @@
+<div *ngIf="userIsLoggedIn">
+  <p>Watch later list : </p>
+  <div *ngFor="let movie of watchLaterList">
+    <p> - {{movie.original_title}}</p>
+  </div>
+  <div *ngFor="let movie of items">
+    <p> - {{movie.original_title}}</p>
+  </div>
+</div>
+<p *ngIf="!userIsLoggedIn">Please login to add watch latter</p>
